@@ -4,6 +4,13 @@ import { withRouter, Route, Switch } from 'react-router-dom';
 import TopicsLayout from '../components/Topics';
 import { fetchTopics } from '../actions/Actions';
 import TopicDetail from '../components/TopicDetail';
+import Bundle from '../commons/LazyLoad/Bundle';
+
+// const TopicsLayout = () => (
+//     <Bundle load={()=>import('../components/Topics')}>
+//         {(TopicsLayout) => <TopicsLayout />} 
+//     </Bundle>
+// )
 
 class Topics extends Component {
     componentDidMount() {
@@ -16,7 +23,7 @@ class Topics extends Component {
                 <Switch>
                     <Route path={`${match.path}`} exact render={(match)=>{
                         return !fetching 
-                        ? <TopicsLayout topics={Topics} match={match}/> 
+                        ? <TopicsLayout topics={Topics} match={match}/>
                         : <div />
                     }}/>
                     <Route path={`${match.path}/:topicid`} render={({match})=>(

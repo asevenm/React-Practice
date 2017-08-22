@@ -3,10 +3,22 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Store from '../store/Store';
-import Home from '../components/Home';
-import Topics from '../containers/Topics';
+import Bundle from '../commons/LazyLoad/Bundle';
 
 const history = createBrowserHistory();
+
+const Home = (props) => (
+    <Bundle load={()=>import('../components/Home')}>
+        {(Home)=><Home />} 
+    </Bundle>
+)
+
+const Topics = (props) => (
+    <Bundle load={()=>import('../containers/Topics')}>
+        {(Topics)=><Topics {...props}/>}
+    </Bundle>
+)
+
 export default class RootContainer extends Component {
     render() {
         return (

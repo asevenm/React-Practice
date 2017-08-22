@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Topics.css';
 
-const Topic = ({topic, index, match}) => {
+const Topic = ({topic, index, match}={}) => {
     return (
         <Link className='topicItem' to={`${match.match.path}/${index}`}>
             <div className='avatar'>
@@ -13,7 +13,7 @@ const Topic = ({topic, index, match}) => {
     )
 }
 
-const Topics = ({topics, match}) => {
+const Topics = ({topics, match}={}) => {
     return (
         <div className='topic-list'>
             {

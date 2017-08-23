@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Route, Switch } from 'react-router-dom';
-import TopicsLayout from '../components/Topics';
 import { fetchTopics } from '../actions/Actions';
-import TopicDetail from '../components/TopicDetail';
 import Bundle from '../commons/LazyLoad/Bundle';
 
-// const TopicsLayout = () => (
-//     <Bundle load={()=>import('../components/Topics')}>
-//         {(TopicsLayout) => <TopicsLayout />} 
-//     </Bundle>
-// )
+const TopicsLayout = (props) => (
+    <Bundle load={()=>import('../components/Topics')}>
+        {(TopicsLayout) => <TopicsLayout {...props}/>} 
+    </Bundle>
+)
+
+const TopicDetail = (props) => (
+    <Bundle load={()=>import('../components/TopicDetail')}>
+        {(TopicDetail) => <TopicDetail {...props}/>} 
+    </Bundle>
+)
 
 class Topics extends Component {
     componentDidMount() {

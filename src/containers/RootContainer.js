@@ -19,6 +19,11 @@ const Topics = (props) => (
     </Bundle>
 )
 
+const Test = (props) => (
+    <Bundle load={() => import('../components/test/test')}>
+        {Test => <Test {...props}/>}
+    </Bundle>
+)
 export default class RootContainer extends Component {
     render() {
         return (
@@ -27,6 +32,7 @@ export default class RootContainer extends Component {
                     <Switch>
                         <Route path='/' exact component={Home}/>
                         <Route path='/topics' component={Topics}/>
+                        <Route path='/test' component={Test}/>
                     </Switch>
                 </BrowserRouter>
             </Provider>

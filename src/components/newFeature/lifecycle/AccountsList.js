@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import SideEffect from './SideEffect';
 import UncontrolledEmailInput from "./UncontrolledEmailInput";
 import './AccountsList.css';
 
@@ -43,6 +44,10 @@ export default class AccountsList extends Component {
           inline comments in <code>UncontrolledEmailInput.js</code> to learn
           why.
         </p>
+        <h1>含副作用组件设计</h1>
+        <SideEffect 
+          id={selectedAccount.id} 
+        />
       </Fragment>
     );
   }

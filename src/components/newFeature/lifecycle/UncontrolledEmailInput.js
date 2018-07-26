@@ -24,7 +24,17 @@ export default class UncontrolledEmailInput extends Component {
       };
     }
     return null;
-	}
+  }
+  
+  //before
+  // componentWillReceiveProps(nextProps) {
+  //   if(nextProps.userID !== state.prevPropsUserID) {
+  //     this.setState({
+  //       prevPropsUserID: nextProps.userID,
+  //       email: this.props.defaultEmail,
+  //     });
+  //   }
+  // } 
 	
 	componentDidMount() {
 		this.inputRef.current.focus();

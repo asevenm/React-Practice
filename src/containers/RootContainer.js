@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Store from '../store/Store';
-import Bundle from '../commons/LazyLoad/Bundle';
+import Bundle from '../commons/LazyLoad/Bundle'
 
 const history = createBrowserHistory();
 
@@ -24,6 +24,19 @@ const Test = (props) => (
         {Test => <Test {...props}/>}
     </Bundle>
 )
+
+const Table = (props) => (
+  <Bundle load={() => import('../components/table/table')}>
+    {Table => <Table {...props}/>}
+  </Bundle>
+)
+
+const NewFeature = (props) => (
+    <Bundle load={() => import('./NewFeature')}>
+        {NewFeature => <NewFeature {...props}/>} 
+    </Bundle>
+)
+
 export default class RootContainer extends Component {
     render() {
         return (
@@ -33,6 +46,8 @@ export default class RootContainer extends Component {
                         <Route path='/' exact component={Home}/>
                         <Route path='/topics' component={Topics}/>
                         <Route path='/test' component={Test}/>
+                        <Route path='/table' component={Table}/>
+                        <Route path='/newFeature' component={NewFeature} />
                     </Switch>
                 </BrowserRouter>
             </Provider>

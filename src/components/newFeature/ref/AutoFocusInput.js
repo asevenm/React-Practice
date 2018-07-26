@@ -6,7 +6,7 @@ const FancyButton = React.forwardRef((props, ref) => (
 ));
 
 const ref = React.createRef();
-console.log('ref:', ref);
+// console.log('ref:', ref);
 export default class AutoFocusTextInput extends React.Component {
 	constructor(props) {
 		super(props);

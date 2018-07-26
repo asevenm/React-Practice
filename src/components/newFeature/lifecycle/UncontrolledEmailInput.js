@@ -16,7 +16,8 @@ export default class UncontrolledEmailInput extends Component {
   static getDerivedStateFromProps(props, state) {
     // Any time the current user changes,
     // Reset any parts of state that are tied to that user.
-    // In this simple example, that's just the email.
+		// In this simple example, that's just the email.
+		console.log('getDerivedStateFromProps is triggered');
     if (props.userID !== state.prevPropsUserID) {
       return {
         prevPropsUserID: props.userID,
@@ -45,6 +46,7 @@ export default class UncontrolledEmailInput extends Component {
   };
 
   render() {
+		console.log('render function called')
     return (
 			<Fragment>
 				<label>

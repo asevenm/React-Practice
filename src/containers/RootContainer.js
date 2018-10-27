@@ -3,7 +3,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Store from '../store/Store';
-import Bundle from '../commons/LazyLoad/Bundle'
+import Bundle from '../commons/LazyLoad/Bundle';
+import SimpleCounter from './SimpleCounter';
+import HooksContainer from './hooks/HooksContainer';
 
 const history = createBrowserHistory();
 
@@ -48,6 +50,8 @@ export default class RootContainer extends Component {
                         <Route path='/test' component={Test}/>
                         <Route path='/table' component={Table}/>
                         <Route path='/newFeature' component={NewFeature} />
+                        <Route path='/simple-counter' component={SimpleCounter} />
+                        <Route path='/hooks' component={HooksContainer} />
                     </Switch>
                 </BrowserRouter>
             </Provider>

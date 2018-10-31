@@ -6,6 +6,7 @@ import Store from '../store/Store';
 import Bundle from '../commons/LazyLoad/Bundle';
 import SimpleCounter from './SimpleCounter';
 import HooksContainer from './hooks/HooksContainer';
+import SuspenseContainer from './suspense/SuspenseContainer';
 
 const history = createBrowserHistory();
 
@@ -52,6 +53,7 @@ export default class RootContainer extends Component {
                         <Route path='/newFeature' component={NewFeature} />
                         <Route path='/simple-counter' component={SimpleCounter} />
                         <Route path='/hooks' component={HooksContainer} />
+                        <Route path='/suspense' component={SuspenseContainer} />
                     </Switch>
                 </BrowserRouter>
             </Provider>

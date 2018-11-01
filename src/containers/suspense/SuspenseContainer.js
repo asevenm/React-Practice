@@ -1,17 +1,21 @@
 import React, { PureComponent, Suspense, lazy } from 'react';
 import { withRouter } from 'react-router-dom';
 import { unstable_createResource } from 'react-cache';
+import Spin from '../../components/spin/Spin.jsx';
 
-const Topics = lazy(() => import('../../components/Topics'));
+const Topics = lazy(() => import('./Topics'));
 
 
 class SuspenseContainer extends PureComponent {
   state = {
     topics: [],
   }
+
   componentDidMount() {
     this.fetchTopics();
   }
+
+  topicsResource = unstable_createResource()
 
   fetchTopics = async (page = 1, limit = 10) => {
     const res = await fetch(`https://cnodejs.org/api/v1/topics?page=${page}&limit=${limit}`);
@@ -20,12 +24,10 @@ class SuspenseContainer extends PureComponent {
   }
 
   render() {
-    console.log(this.props);
     const { topics } = this.state;
-    const { match } = this.props;
     return (
       <div>
-        <Suspense fallback={<div>loading...</div>}>
+        <Suspense fallback={<Spin size={'large'}/>}>
           <Topics topics={topics} match={this.props} />
         </Suspense>
       </div>

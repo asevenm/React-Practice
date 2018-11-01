@@ -17,7 +17,8 @@ class BuggyCounter extends React.Component {
 	render() {
 		if (this.state.counter === 5) {
 			// Simulate a JS error
-			throw new Error('I crashed!');
+			setTimeout(() => {throw new Error('I crashed@')}, 2000);
+			// throw new Error('I crashed!');
 		}
 		return <h1 onClick={this.handleClick}>{this.state.counter}</h1>;
 	}

@@ -35,5 +35,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "danger": "^10.8.0",
+    "husky": "^7.0.4"
+  }
 }

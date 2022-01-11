@@ -7,6 +7,8 @@ import Bundle from '../commons/LazyLoad/Bundle';
 import SimpleCounter from './SimpleCounter';
 import HooksContainer from './hooks/HooksContainer';
 import SuspenseContainer from './suspense/SuspenseContainer';
+import ChooseCamera from './Camera';
+import CheckRender from './checkRender/checkRender';
 
 const history = createBrowserHistory();
 
@@ -54,6 +56,8 @@ export default class RootContainer extends Component {
                         <Route path='/simple-counter' component={SimpleCounter} />
                         <Route path='/hooks' component={HooksContainer} />
                         <Route path='/suspense' component={SuspenseContainer} />
+                        <Route path='/camera' component={ChooseCamera}/>
+                        <Route path='/check' component={CheckRender}/>
                     </Switch>
                 </BrowserRouter>
             </Provider>

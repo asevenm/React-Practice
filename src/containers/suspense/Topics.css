@@ -1,0 +1,13 @@
+.topic-list .topicItem {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+  padding: 10px 20px; }
+  .topic-list .topicItem .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px; }
+    .topic-list .topicItem .avatar img {
+      max-width: 100%; }
